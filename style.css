@@ -1,0 +1,22 @@
+.pagination{
+
+    justify-content: center;
+    transform:translateY(50px) ;
+    padding-top: 50%;
+}
+#loader{
+    padding:10px ;
+    color:red;
+}
+span:hover{
+    background: rgba(0,0,0,0.3);
+}
+img{
+    border-radius:75% ;
+    border: 1px solid rgb(82, 80, 80);
+    padding: 3px;
+}
+.disp{
+    /* display: flex; */
+    border:1px solid red;
+}
