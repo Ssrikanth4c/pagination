@@ -46,21 +46,41 @@ const loadPage=page=>{
         span.addEventListener('click', ()=>{ 
             loadPage(i+1);
         })
-        span.classList.add("border", "p-2","text-info")
+        span.classList.add("border", "p-2","text-info", "active")
         pageOutput.appendChild(span);
         pageOutput.classList.add("my-4")
-        console.log(i)
+        // console.log(i)
     }
     pages.appendChild(pageOutput)
     
 
-    // pagination.innerHTML=""
+    let userDetails= document.createElement('div')
+    userDetails.classList.add("row", "justify-content-center")
     for(let i=startPost; i<endPost; i++){
         // console.log(posts.results[i]) 
         let display= document.createElement('div')
-        display.innerHTML=`<img src=${posts.results[i].picture.medium} height="150" /><p> ${posts.results[i].name.first}</p>`;
-        display.classList.add("disp")
-        pagination.appendChild(display)   
+        display.innerHTML=`
+            <img src=${posts.results[i].picture.thumbnail} height="150" width="150" />
+            <p class="font-weight-bold bg-light my-2">${posts.results[i].name.title}. ${posts.results[i].name.first} ${posts.results[i].name.last}</p>
+            `;
+        let details= document.createElement('div');
+        
+        details.innerHTML=`
+            <p>
+               Email: <b>${posts.results[i].email}</b>
+            </p>
+            <p>
+                Cell: <b>${posts.results[i].cell}</b>
+            </p>
+            <p>
+             City: <b>${posts.results[i].location.city}</b>
+            </p>
+        `
+        details.classList.add("d-flex", "flex-column")
+        display.classList.add("disp", "col-sm-12", "col-md-5", "col-xl-4")
+        display.appendChild(details)
+        userDetails.appendChild(display)
+        pagination.appendChild(userDetails)   
     }
     console.log(posts.results[0].picture.medium)
 }
