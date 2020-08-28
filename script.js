@@ -60,11 +60,11 @@ const loadPage=page=>{
         // console.log(posts.results[i]) 
         let display= document.createElement('div')
         display.innerHTML=`
-            <img src=${posts.results[i].picture.thumbnail} height="150" width="150" />
+            <img src=${posts.results[i].picture.medium} height="150" width="150" />
             <p class="font-weight-bold bg-light my-2">${posts.results[i].name.title}. ${posts.results[i].name.first} ${posts.results[i].name.last}</p>
             `;
         let details= document.createElement('div');
-        
+
         details.innerHTML=`
             <p>
                Email: <b>${posts.results[i].email}</b>
